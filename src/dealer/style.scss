@@ -1,0 +1,46 @@
+.page-dealer{
+	background: #F5F5F5;
+	.dealer-header{
+		background: #fff;
+		color:#000;
+	}
+	.dealer-scroll-wrapper{
+		height: calc(100% - 45px);
+		width: 100%;
+		overflow-y: auto;
+	}
+	.total-dealer{
+		padding: 20px 0 16px 16px;
+	}
+	.dealer-ul{
+		li{
+			padding: 16px;
+			background: #fff;
+			margin-bottom: 10px;
+		}
+		.item-content{
+			justify-content: flex-start;
+			height: 80px;
+			p{
+				width: 100%;
+				display: flex;
+				padding-left: 10px;
+			}
+			p.dealer-name{
+				font-size: 16px;
+				color: #303030;
+			}
+			p.dealer-addr{
+				font-size: 13px;
+				color: #808080;
+			}
+			p.dealer-ratale span{
+				font-size: 8px;
+				padding: 4px;
+				border:1px solid #E5E5E5;
+				color: #CCCCCC;
+				border-radius: 4px;
+			}
+		}
+	}
+}

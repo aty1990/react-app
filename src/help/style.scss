@@ -1,0 +1,49 @@
+.queue-demo-wrapper {
+  position: relative;
+  background: #CCE9F9;
+  overflow: hidden;
+  height: 100%;
+}
+
+.page-help{
+	height: 100%;
+}
+
+.queue-demo {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background: #fff;
+}
+
+
+.queue-demo ul {
+  overflow: hidden;
+}
+
+.queue-demo ul li {
+  list-style: none;
+  overflow: hidden;
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid #efefef;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  position: relative;
+}
+
+.queue-demo-img, .queue-demo ul li p {
+  display: inline-block;
+}
+.queue-demo ul li.queue-anim-leaving{
+  position: relative !important;
+}
+.queue-demo-img {
+  margin: 0 20px;
+}
+
+.queue-demo-content {
+  background: #fff;
+  position: relative;
+}

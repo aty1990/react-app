@@ -1,0 +1,39 @@
+.swiper-container{
+	height: 100%;
+}
+.swiper-slide{
+	height: 100%;
+}
+.slilde-img{
+	width: 100%;
+	height: 100%;
+}
+.footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	background: #fff;
+	width: 100vw;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.left-opts{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	border-right: 1px solid #eeeeee;
+}
+.right-opts{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #004E90;
+	color:#fff;
+	height: 100%;
+}

@@ -1,0 +1,81 @@
+.page-test{
+	height: 100%;
+	overflow-y: auto;
+	background: url("../img/210.png") #fff top left no-repeat;
+	background-size:100% auto; 
+	.header-nav{
+		position: fixed;
+		width: 100vw;
+		height: 45px;
+		display: flex;
+		color:#000;
+	}
+	.back-icon{
+		display: flex;
+		height: 100%;
+		align-items: center;
+		width: 15%;
+		padding-left: 10px;
+		color:#fff;
+	}
+	.header-title{
+		display: flex;
+		align-items: center;
+		color:#fff;
+		width: 70%;
+		justify-content: center;
+
+	}
+	.menu-icon{
+		width: 60px;
+		display: flex;
+		flex-grow : 1;
+		height: 100%;
+		align-items: center;
+		color:#fff;
+		width: 15%;
+		justify-content: flex-end;
+		padding-right: 16px;
+	}	
+	.default-img{
+		margin-top: 45px;
+	}
+	.my-list{
+		.am-list-header{
+			font-size: 16px;
+			color: #333333;
+			letter-spacing: 0;
+		}
+		.am-list-content{
+			font-size: 16px;
+			padding-top: 16px;
+    		padding-bottom: 16px;	
+		}
+		.am-list-extra{
+			font-size: 14px;
+			color: #CCCCCC;
+			flex-basis: 51%;
+		}
+	}
+	.commit-btn-wrapper{
+		width: 90%;
+		margin-left: 5%;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+
+	.am-button-disabled{
+	    background-color: #E5E5E5;
+	    border-radius: 8px;
+		color: #CCCCCC;
+	}
+	.am-button{
+		font-size: 16px;
+	}
+}
+.am-picker-col-item{
+	font-size: 14px;
+}
+.am-picker-col-item-selected{
+    font-size: 16px;
+}
