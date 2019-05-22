@@ -39,7 +39,7 @@ class CarList extends Component{
 		const { curIdx } = this.state;
 		const { carlist } = this.props;
 		return (
-			<div className="container">
+			<div className="container page-carlist">
 				<Scroll 
 					click ={ true }>
 					<div className="content-wrapper">

@@ -72,6 +72,9 @@
 	.am-button{
 		font-size: 16px;
 	}
+	.picker-address.visible{
+		background: rgba(0,0,0,0.5);
+	}
 }
 .am-picker-col-item{
 	font-size: 14px;
@@ -79,3 +82,4 @@
 .am-picker-col-item-selected{
     font-size: 16px;
 }
+

@@ -1,19 +1,19 @@
 const dealerObj = {
-	dealerList : [
-		{ id:"0",name:"上海协调保留1",addr:"共和新路3208号1号楼","star":"5555",ratale:"暂无经销商评分"},
-		{ id:"1",name:"上海协调保留2",addr:"共和新路3208号2号楼","star":"5555",ratale:"暂无经销商评分"}
-	],
+	dealerList : [],
+	total : 0,
 	selectIdx:null
 }
 const dealer = (state = dealerObj, action) => {
-	let newData = Object.assign({}, state);
 	switch (action.type) {
+		case 'SET_DEALER_LIST':
+			return {
+				...state,
+				selectIdx : sessionStorage.selectIdx?sessionStorage.selectIdx:action.data.selectIdx,
+				dealerList : action.data.dealerList,
+				total : action.data.total
+			};
 		case 'CHANGE_IDX':
-			newData.selectIdx = action.selectIdx;
-			return newData;
-		case 'ADD_DEALER':
-			newData.dealerList.push(action.item);
-			return newData;
+			return {...state,selectIdx:action.idx};
 		default :
 			return state;
 	}

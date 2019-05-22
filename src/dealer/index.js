@@ -8,6 +8,7 @@ import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { get } from "../util/request"
 import './style.scss'
 const Item = Popover.Item;
 class Dealer extends Component{
@@ -37,19 +38,24 @@ class Dealer extends Component{
         });
     }
 	componentWillMount() { 
-        console.log("组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。")
+		if(this.props.dealerList.dealerList.length==0){
+			get("http://localhost:8989/mock/dealer.json").then(data => {
+				this.props.setDealerList(data);
+	  		});	
+	  		console.log("组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。")
+		}
     }
     back(){
     	this.props.history.goBack();
     }
     getDealer(item,index){
     	this.props.changeIdx(index);
-    	this.back();
+    	sessionStorage.selectIdx = index;
     	this.props.setDealerName(item.name);
+    	this.back();
     }
 	render(){
-		var dealerList = this.props.dealerList.dealerList;
-		var selectIdx = this.props.dealerList.selectIdx;
+		const { dealerList,selectIdx,total } = this.props.dealerList;
 		const liChildren = dealerList.map((item,index) => {
 	      	return (<li key={index}  onClick={this.getDealer.bind(this,item,index)}>
 	        	<TweenOne className="flex">
@@ -63,7 +69,7 @@ class Dealer extends Component{
 						<p className="dealer-ratale"><span>{item.ratale}</span></p>
 	    			</div>
 	    			<div className="flex">
-	    				<img src={selectIdx===index?real:unselected} alt="" width="20" />
+	    				<img src={selectIdx==index?real:unselected} alt="" width="20" />
 	    			</div>
 	        	</TweenOne>
 	      	</li>);
@@ -76,7 +82,7 @@ class Dealer extends Component{
 			      onLeftClick={this.back.bind(this)}
 			    >经销商</NavBar>
 			    <div className="dealer-scroll-wrapper">
-			    	<div className="total-dealer">共33家门店</div>
+			    	<div className="total-dealer">共{total}家门店</div>
 			    	<QueueAnim component="ul"
 			            animConfig={[
 			              	{ opacity: [1, 0], translateY: [0, 30] },
@@ -93,23 +99,22 @@ class Dealer extends Component{
 		)
 	}
 }
-const mapStateToProps = ( dealer = []) => {
-	
-	return {dealerList:dealer.dealer};
+const mapStateToProps = ( state) => {
+	console.log(state.dealer)
+	return {dealerList:state.dealer};
 };
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		changeIdx: (idx) => {
 			dispatch({
 				type : 'CHANGE_IDX',
-				selectIdx : idx
+				idx
 			});
 		},
-		addDealer:(item) =>{
+		setDealerList:(data)=>{
 			dispatch({
-				type : 'ADD_DEALER',
-				item
+				type : 'SET_DEALER_LIST',
+				data
 			});
 		},
 		setDealerName:(name) =>{

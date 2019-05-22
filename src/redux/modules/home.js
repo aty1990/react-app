@@ -1,10 +1,4 @@
-const homeData = [
-	{classId:0,img:"https://cms.sgmlink.com/ibuick/cdn/oss/1342/1.jpg"},
-	{classId:1,img:"https://cms.sgmlink.com/ibuick/cdn/oss/1342/2.jpg"},
-	{classId:2,img:"https://cms.sgmlink.com/ibuick/cdn/oss/1342/3.jpg"},
-	{classId:3,img:"https://cms.sgmlink.com/ibuick/cdn/oss/1342/4.jpg"},
-	{classId:4,img:"https://cms.sgmlink.com/ibuick/cdn/oss/1342/5.jpg"}
-]
+const homeData = [];
 const home = (state = homeData, action) => {
 	switch (action.type) {
 		case 'ADD_TODO':
@@ -15,9 +9,19 @@ const home = (state = homeData, action) => {
 					img: action.img
 				}
 			];
+		case 'SET_DATA':
+			return state.concat(action.iconList)
 		default :
 			return state;
 	}
 }
-
 export default home;
+
+//获取猜你喜欢state
+export const getIconList = state => {
+	console.log(state);
+  	// return state.home.likes.ids.map(id => {
+   //  	return state.entities.products[id]
+  	// })
+}
+

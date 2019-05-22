@@ -3,6 +3,11 @@ import React,{ Component } from 'react'
 // import { Link } from "react-router-dom";
 // import Slider from "react-slick";
 import { connect } from 'react-redux'; 
+import { bindActionCreators } from "redux";
+import { get } from "../util/request"
+
+import { getIconList,actions as homeAction } from '../redux/modules/home'; 
+
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import "./style.scss";
@@ -14,12 +19,17 @@ class Home extends Component{
 	    this.swiperObj = null;
 	}
 	componentDidMount(){
-		this.swiperObj = new Swiper('.swiper-container', {
-	       slidesPerView : 1,
-	       direction : 'vertical'
-	    });
+		
 	}	
 	componentWillMount() { 
+		get("http://localhost:8989/mock/home.json").then(data => {
+			this.props.setData(data);
+  		}).then(()=>{
+  			this.swiperObj = new Swiper('.swiper-container', {
+		       slidesPerView : 1,
+		       direction : 'vertical'
+		    });
+  		})
         console.log("组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。")
     }
 	gotoCarList(path){
@@ -33,6 +43,7 @@ class Home extends Component{
 		this.props.history.push(path);
 	}
 	render(){
+		console.log(this.props);
 		const list = this.props.home;
 		return (
 			<div className="container">
@@ -57,12 +68,21 @@ class Home extends Component{
 		)
 	}
 }
-const mapStateToProps = (homeData = []) => {
-	return {home:homeData.home};
-};
 
+const mapStateToProps = (state, props) => {
+  	return {
+		home:state.home,
+		iconList:getIconList(state)
+	};
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
+		setData:(iconList) => {
+			dispatch({
+				type:'SET_DATA',
+				iconList
+			});
+		},
 		onAdd: (text) => {
 			dispatch({
 				type:'ADD_TODO',

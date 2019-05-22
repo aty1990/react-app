@@ -9,6 +9,7 @@ import Options from './options';
 export const RouterConfig = [
   	{
 	    path: '/user',
+	    exact : true,
 	    component: User,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -17,6 +18,7 @@ export const RouterConfig = [
   	},
   	{
 	    path: '/carlist',
+	    exact : true,
 	    component: Carlist,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -25,6 +27,7 @@ export const RouterConfig = [
   	},
   	{
 	    path: '/help',
+	    exact : true,
 	    component: Help,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -33,6 +36,7 @@ export const RouterConfig = [
   	},
   	{
 	    path: '/options',
+	    exact : true,
 	    component: Options,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -41,6 +45,7 @@ export const RouterConfig = [
   	},
   	{
 	    path: '/test',
+	    exact : true,
 	    component: Test,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -49,6 +54,7 @@ export const RouterConfig = [
   	},
   	{
 	    path: '/dealer',
+	    exact : true,
 	    component: Dealer,
 	    sceneConfig: {
 	      	enter: 'from-right',
@@ -56,7 +62,8 @@ export const RouterConfig = [
 	    }
   	},
   	{
-	    path: '',
+	    path: '/',
+	    exact : true,
 	    component: Home
   	}
 ];

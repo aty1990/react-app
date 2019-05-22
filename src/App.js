@@ -44,9 +44,10 @@ const Routes = withRouter(({location, history}) => {
     >
       <CSSTransition timeout={500} key={location.pathname}>
         <Switch location={location}>
-          {RouterConfig.map((config, index) => (
-            <Route exact key={index} {...config}/>
-          ))}
+            {RouterConfig.map((config, index) =>{
+                let rou = <Route  key={index} {...config}/>;
+                return (rou)
+            })}
         </Switch>
       </CSSTransition>
     </TransitionGroup>
